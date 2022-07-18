@@ -1,5 +1,7 @@
 package diginamic.entities;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
@@ -21,6 +23,18 @@ private String chipId;
 public Cat() {
 	
 }
+
+/** Constructeur
+ * @param birth
+ * @param couleur
+ * @param petStore
+ * @param chipId
+ */
+public Cat(LocalDate birth, String couleur,String chipId) {
+	super(birth, couleur);
+	this.chipId = chipId;
+}
+
 /** Getter
  * @return the chipId
  */
@@ -34,6 +48,7 @@ public String getChipId() {
 public void setChipId(String chipId) {
 	this.chipId = chipId;
 } 
+
 
 
 }

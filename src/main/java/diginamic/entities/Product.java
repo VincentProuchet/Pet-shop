@@ -1,5 +1,6 @@
 package diginamic.entities;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -32,7 +33,7 @@ public class Product {
 	/** price */
 	private Double price;
 	@ManyToMany (mappedBy = "products")
-	private Set<PetStore> petStore;
+	private Set<PetStore> petStore = new HashSet<PetStore>();
 	
 	/** Getter
 	 * @return the code
@@ -90,10 +91,40 @@ public class Product {
 		this.price = price;
 	}
 
+	/** Getter
+	 * @return the petStore
+	 */
+	public Set<PetStore> getPetStore() {
+		return petStore;
+	}
+
+	/** Setter
+	 * @param petStore the petStore to set
+	 */
+	public void setPetStore(PetStore petStore) {
+		this.petStore.add(petStore);
+	}
+	/** Setter
+	 * @param petStore the petStore to set
+	 */
+	public void remPetStore(PetStore petStore) {
+		this.petStore.remove(petStore);
+	}
+
+
+	/** Constructeur
+	 * 
+	 */
 	public Product() {
 		super();
 	}
 
+	/** Constructeur
+	 * @param code
+	 * @param label
+	 * @param type
+	 * @param price
+	 */
 	public Product(String code, String label, ProdType type, Double price) {
 		super();
 		this.code = code;

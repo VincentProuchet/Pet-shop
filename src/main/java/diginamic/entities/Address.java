@@ -28,80 +28,116 @@ public class Address {
 	private String zipcode;
 	/** city */
 	private String city;
-	@OneToOne
+	@OneToOne (mappedBy = "address")
 	private PetStore store;
 
-	/** Constructeur
+	/**
+	 * Constructeur
 	 * 
 	 */
 	public Address() {
-		
+
 	}
 
-	public Address(String number, String street, String zipcode, String city) {
+	public Address(int i, String street, String zipcode, String city) {
 		super();
-		this.number = number;
+		this.number = Integer.valueOf(i).toString();
 		this.street = street;
 		this.zipcode = zipcode;
 		this.city = city;
 	}
 
-	/** Getter
+	/**
+	 * Getter
+	 * 
 	 * @return the number
 	 */
 	public String getNumber() {
 		return number;
 	}
 
-	/** Getter
+	/**
+	 * Getter
+	 * 
 	 * @return the street
 	 */
 	public String getStreet() {
 		return street;
 	}
 
-	/** Getter
+	/**
+	 * Getter
+	 * 
 	 * @return the zipcode
 	 */
 	public String getZipcode() {
 		return zipcode;
 	}
 
-	/** Getter
+	/**
+	 * Getter
+	 * 
 	 * @return the city
 	 */
 	public String getCity() {
 		return city;
 	}
 
-	/** Setter
+	/**
+	 * Setter
+	 * 
 	 * @param number the number to set
 	 */
 	public void setNumber(String number) {
 		this.number = number;
 	}
 
-	/** Setter
+	/**
+	 * Setter
+	 * 
 	 * @param street the street to set
 	 */
 	public void setStreet(String street) {
 		this.street = street;
 	}
 
-	/** Setter
+	/**
+	 * Setter
+	 * 
 	 * @param zipcode the zipcode to set
 	 */
 	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
 	}
 
-	/** Setter
+	/**
+	 * Setter
+	 * 
 	 * @param city the city to set
 	 */
 	public void setCity(String city) {
 		this.city = city;
 	}
-	
-	
-	
+
+	/**
+	 * Getter
+	 * 
+	 * @return the store
+	 */
+	public PetStore getStore() {
+		return store;
+	}
+
+	/**
+	 * Setter
+	 * 
+	 * @param store the store to set
+	 */
+	public void setStore(PetStore store) {
+		if (this.store == null) {
+			this.store = store;
+		}
+
+	}
+
 }

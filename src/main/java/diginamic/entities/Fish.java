@@ -1,5 +1,8 @@
 package diginamic.entities;
 
+import java.time.LocalDate;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -14,6 +17,7 @@ import diginamic.entities.enumeration.FishLivEnv;
 public class Fish extends Animal {
 
 	/** livingEnv */
+	@Column(name = "living_env",nullable = false)
 	private FishLivEnv livingEnv = FishLivEnv.FRESH_WATER;
 
 	/**
@@ -23,6 +27,19 @@ public class Fish extends Animal {
 	public Fish() {
 
 	}
+	
+
+	/** Constructeur
+	 * @param birth
+	 * @param couleur
+	 * @param petStore
+	 * @param env
+	 */
+	public Fish(LocalDate birth, String couleur, FishLivEnv env) {
+		super(birth, couleur);
+		this.livingEnv = env;
+	}
+
 
 	/**
 	 * Getter

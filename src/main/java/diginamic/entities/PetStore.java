@@ -33,11 +33,11 @@ public class PetStore {
 	
 	
 	/** adresse */
-	@OneToOne (mappedBy = "store")
+	@OneToOne (cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH})
 	private Address address; 
 	
 	/** produits */
-	@ManyToMany
+	@ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH})
 	private Set<Product> products = new HashSet<>();
 	/** animaux */
 	@OneToMany (mappedBy = "petStore", cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH} )
@@ -108,7 +108,7 @@ public class PetStore {
 	}
 
 	/** Getter
-	 * @return the annimals
+	 * @return the animals
 	 */
 	public Set<Animal> getAnimals() {
 		return animals;
@@ -131,25 +131,28 @@ public class PetStore {
 	/** Setter
 	 * @param address the address to set
 	 */
-	public void setAddress(Address address) {
+	public void setAddress(Address address) {	
 		this.address = address;
+		this.address.setStore(this);
 	}
 
 	/** Setter
-	 * @param products the products to set
+	 * @param products the products to add
 	 */
-	public void setProducts(Set<Product> products) {
-		this.products = products;
+	public void setProducts(Product products) {
+		this.products.add(products);
+		products.setPetStore(this);
+	}
+	/** Setter
+	 * @param products the products to remove
+	 */
+	public void remProducts(Product products) {
+		this.products.remove(products);
+		products.remPetStore(this);
 	}
 
 	/** Setter
-	 * @param animals the animals to set
-	 */
-	public void setAnimals(Set<Animal> annimals) {
-		this.animals = annimals;
-	}
-	/** Setter
-	 * @param animals the animals to set
+	 * @param animals the animals to add
 	 */
 	public void setAnimals(Animal animal) {
 		animal.setPetStore(this);

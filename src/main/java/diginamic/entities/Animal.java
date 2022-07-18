@@ -42,6 +42,19 @@ public class  Animal implements Serializable {
 	public Animal() {
 
 	}
+	
+
+	/** Constructeur
+	 * @param birth
+	 * @param couleur
+	 * @param petStore
+	 */
+	public Animal(LocalDate birth, String couleur) {
+		super();
+		this.birth = birth;
+		this.couleur = couleur;
+	}
+
 
 	/**
 	 * Getter
