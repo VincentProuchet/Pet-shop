@@ -1,4 +1,5 @@
 *.class
+
 /.settings
 /.resources
 /bin
@@ -7,9 +8,9 @@
 .project
 /data
 /Libs
-/resources
 /doc
 /target
+/.resources/
 target/
 out/
 !.mvn/wrapper/maven-wrapper.jar
