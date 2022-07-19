@@ -1,5 +1,7 @@
 package diginamic.entities.enumeration.converter;
 
+import java.util.stream.Stream;
+
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 
@@ -21,7 +23,11 @@ public class FishLivEnvConverter implements AttributeConverter<FishLivEnv, Strin
 		if (dbData == null) {
 			return null;
 		}
-		return FishLivEnv.valueOf(dbData);
+		return Stream.of(FishLivEnv.values())
+				.filter(f->f.getName().equals(dbData)).findFirst()
+				.orElseThrow(IllegalArgumentException::new)
+				;
 	}
+	
 
 }

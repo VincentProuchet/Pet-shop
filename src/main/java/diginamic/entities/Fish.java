@@ -4,10 +4,9 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 
 import diginamic.entities.enumeration.FishLivEnv;
+import net.bytebuddy.implementation.bind.annotation.Super;
 
 /**
  * @author Vincent
@@ -58,5 +57,12 @@ public class Fish extends Animal {
 	public void setLivingEnv(FishLivEnv livingEnv) {
 		this.livingEnv = livingEnv;
 	}
+	public String toString() {
+		return new StringBuilder(super.toString())
+				
+				.append("\t").append(this.livingEnv.getName())
+				.toString();
+		}
 
+	 
 }

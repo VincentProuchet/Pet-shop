@@ -129,5 +129,11 @@ public class  Animal implements Serializable {
 			this.petStore.getAnimals().add(this);
 		}
 	}
+	public String toString() {
+		return new StringBuilder(" - ").append(this.id)
+				.append(" \t").append(this.couleur)
+				.append(" \t").append(petStore.getName())
+				.toString();
+	}
 
 }

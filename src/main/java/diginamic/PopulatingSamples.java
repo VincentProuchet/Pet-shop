@@ -8,7 +8,6 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 import diginamic.entities.Address;
-import diginamic.entities.Animal;
 import diginamic.entities.Cat;
 import diginamic.entities.Fish;
 import diginamic.entities.PetStore;
@@ -64,9 +63,9 @@ public class PopulatingSamples {
 		store3.setAnimals(new Cat(LocalDate.of(2022, 05,11),	"gris",		"00655854364812"));
 		store3.setAnimals(new Cat(LocalDate.of(2022, 05,11),	"blanc",	"04787676474812"));
 		store3.setAnimals(new Cat(LocalDate.of(2022, 04,10),	"noir",		"45718766654748"));
-		store2.setAnimals(new Fish(LocalDate.of(2022, 04,10),	"noir",			FishLivEnv.FRESH_WATER));
+		store2.setAnimals(new Fish(LocalDate.of(2022, 04,10),	"noir",			FishLivEnv.SEA_WATER));
 		store2.setAnimals(new Fish(LocalDate.of(2022, 06,02),	"rouge",		FishLivEnv.FRESH_WATER));
-		store2.setAnimals(new Fish(LocalDate.of(2022, 05,12),	"rouge",		FishLivEnv.FRESH_WATER));
+		store2.setAnimals(new Fish(LocalDate.of(2022, 05,12),	"rouge",		FishLivEnv.SEA_WATER));
 		store2.setAnimals(new Fish(LocalDate.of(2021, 10,14),	"blanc",		FishLivEnv.FRESH_WATER));
 		
 		

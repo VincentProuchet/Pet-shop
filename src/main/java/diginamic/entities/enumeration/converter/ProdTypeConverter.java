@@ -1,9 +1,12 @@
 package diginamic.entities.enumeration.converter;
 
+import java.util.stream.Stream;
+
 import javax.persistence.AttributeConverter;
+import javax.persistence.Converter;
 
 import diginamic.entities.enumeration.ProdType;
-
+@Converter(autoApply = true)
 public class ProdTypeConverter implements AttributeConverter<ProdType, String> {
 
 	@Override
@@ -19,7 +22,13 @@ public class ProdTypeConverter implements AttributeConverter<ProdType, String> {
 		if (dbData == null) {
 			return null;
 		}
-		return ProdType.valueOf(dbData);
+		return Stream.of(ProdType.values())
+				.filter(p->p.getName().equals(dbData))
+				.findFirst()
+				.orElseThrow(IllegalArgumentException::new)
+				;
+				
+				
 	}
 
 }
